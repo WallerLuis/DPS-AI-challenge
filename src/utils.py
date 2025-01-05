@@ -53,8 +53,8 @@ def preprocess_data(file_path):
     filtered_data = filtered_data['WERT']
 
     # split into train and test data
-    train_data = filtered_data.loc[filtered_data.index < '2021-01-01'] 
-    test_data = filtered_data.loc[filtered_data.index >= '2021-01-01']
+    train_data = filtered_data.loc[filtered_data.index < '2020-01-01'] 
+    test_data = filtered_data.loc[filtered_data.index >= '2020-01-01']
     
     return train_data, test_data, filtered_data
 
