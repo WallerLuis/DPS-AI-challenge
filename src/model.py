@@ -20,7 +20,7 @@ def preprocess_data(file_path):
         (data['KATEGORIE'] == 'Alkoholunfälle') &
         (data['GRUND'] == 'insgesamt') &
         # (data['JAHR'] <= 2021) &
-        # (data['JAHR'] >= 2018) &
+        # (data['JAHR'] >= 2015) &
         (data['MONAT'] != "Summe")
     ]
 
@@ -138,10 +138,10 @@ def train_sarimax(data_series):
     return results, predicted_mean
 
 def plot(data, forecast, modelname):
-    plt.figure(figsize=(10, 6))
-    plt.plot(data, label='historische Daten')
+    plt.figure(figsize=(12, 6))
+    plt.plot(data, label='historische Daten', linestyle='-', color='b', linewidth= 0.7)
     if not forecast.empty:
-        plt.plot(forecast, label='Forecast', linestyle='--')
+        plt.plot(forecast, label='Vorhersage', linestyle='--', color='r')
     plt.legend()
     plt.title('Alkoholunfälle in Bayern')
     plt.xlabel('Jahr')
@@ -166,9 +166,9 @@ if __name__ == '__main__':
     # plt.show()
 
     # train sarimax
-    sarimax_model, future_forecast = train_sarimax(data_series)
+    # sarimax_model, future_forecast = train_sarimax(data_series)
     
-    plot(data_series, future_forecast, "sarima")
     
     sarimax_model, future_forecast = fit_sarimax(data_series)
     # print(future_forecast.describe())
+    plot(data_series, future_forecast, "sarima")
