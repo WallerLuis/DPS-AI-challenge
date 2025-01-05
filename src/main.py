@@ -25,7 +25,7 @@ def main():
     # print(data_series.describe()
 
     # optimize model sarimax and get best result
-    # sarimax_model = optimize_sarimax(train_data)
+    sarimax_model = optimize_sarimax(train_data)
     
     # already optimized params 
     # sarimax_model = fit_sarimax(train_data)

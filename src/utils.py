@@ -71,6 +71,6 @@ def plot(data, forecast, modelname):
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
-    # plt.show()
     plt.savefig("pic/" + modelname + ".png")
+    plt.show()
     plt.close()
